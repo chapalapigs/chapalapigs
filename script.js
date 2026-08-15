@@ -71,8 +71,8 @@ function cargarFotos() {
         }
 
         /*
-         * Se agrega una pequeña marca de versión
-         * para evitar problemas de caché en GitHub Pages.
+         * Marca de versión para evitar problemas
+         * de caché en GitHub Pages.
          */
 
         imagen.src = jugador.foto + "?v=2";
@@ -200,7 +200,7 @@ document.addEventListener("keydown", function(event) {
 
 function actualizarProgreso() {
 
-    const actual = 6571;
+    const actual = 6647;
     const objetivo = 10000;
 
     const porcentaje = (actual / objetivo) * 100;
