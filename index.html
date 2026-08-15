@@ -89,7 +89,7 @@
 
                 <img
                     class="player-photo"
-                    src=""
+                    src="fotos/andres.jpg"
                     alt="Andrés"
                 >
 
@@ -118,7 +118,7 @@
 
                 <img
                     class="player-photo"
-                    src=""
+                    src="fotos/karla.jpg"
                     alt="Karla"
                 >
 
@@ -147,7 +147,7 @@
 
                 <img
                     class="player-photo"
-                    src=""
+                    src="fotos/alonso.jpg"
                     alt="Alonso"
                 >
 
@@ -176,7 +176,7 @@
 
                 <img
                     class="player-photo"
-                    src=""
+                    src="fotos/silver.jpg"
                     alt="Silver"
                 >
 
@@ -205,7 +205,7 @@
 
                 <img
                     class="player-photo"
-                    src=""
+                    src="fotos/user.jpg"
                     alt="Gabriel"
                 >
 
@@ -234,7 +234,7 @@
 
                 <img
                     class="player-photo"
-                    src=""
+                    src="fotos/user.jpg"
                     alt="Damián"
                 >
 
@@ -510,7 +510,7 @@
                 <div>
 
                     <strong id="numeroActual">
-                        6,702
+                        6,807
                     </strong>
 
                     <span>
@@ -520,7 +520,7 @@
                 </div>
 
                 <strong id="porcentaje">
-                    67.02%
+                    68.07%
                 </strong>
 
             </div>
@@ -545,7 +545,7 @@
                     </span>
 
                     <strong>
-                        12:45 · 15 AGO 2026
+                        16:11 · 15 AGO 2026
                     </strong>
 
                 </div>
@@ -571,7 +571,7 @@
                     </span>
 
                     <strong id="cantidadFaltante">
-                        3,298
+                        3,193
                     </strong>
 
                 </div>
@@ -645,6 +645,84 @@
             <p>
                 Próximamente.
             </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ACCESO PRIVADO
+    ========================== -->
+
+    <section id="acceso-privado" class="normal-section">
+
+        <div class="section-title">
+
+            <span>CHAPALA PIGS</span>
+
+            <h2>ACCESO PRIVADO</h2>
+
+            <p>
+                Deberás encontrar las pistas para descubrir la contraseña.
+            </p>
+
+        </div>
+
+
+        <div class="sorteo-container">
+
+            <form
+                id="accesoForm"
+                onsubmit="verificarAcceso(event)"
+                style="
+                    display:flex;
+                    flex-direction:column;
+                    gap:15px;
+                    max-width:500px;
+                    margin:0 auto;
+                "
+            >
+
+                <input
+                    type="password"
+                    id="contrasenaAcceso"
+                    placeholder="INTRODUCE LA CONTRASEÑA"
+                    autocomplete="off"
+                    required
+                    style="
+                        width:100%;
+                        box-sizing:border-box;
+                        padding:16px;
+                        background:#111;
+                        color:white;
+                        border:1px solid #333;
+                        border-radius:8px;
+                        outline:none;
+                    "
+                >
+
+                <button
+                    type="submit"
+                    class="button"
+                    style="
+                        border:none;
+                        cursor:pointer;
+                    "
+                >
+                    ACCEDER
+                </button>
+
+            </form>
+
+
+            <p
+                id="mensajeAcceso"
+                style="
+                    text-align:center;
+                    margin-top:15px;
+                "
+            ></p>
 
         </div>
 

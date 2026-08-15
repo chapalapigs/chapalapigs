@@ -1,6 +1,6 @@
-/* =========================
-   JUGADORES
-========================= */
+/* =========================================================
+   DATOS DE LOS JUGADORES
+========================================================= */
 
 const jugadores = {
 
@@ -55,40 +55,9 @@ const jugadores = {
 };
 
 
-/* =========================
-   CARGAR FOTOS
-========================= */
-
-function cargarFotos() {
-
-    const tarjetas = document.querySelectorAll(".player-card");
-
-    tarjetas.forEach(function(tarjeta) {
-
-        const id = tarjeta.getAttribute("data-player");
-        const jugador = jugadores[id];
-
-        if (!jugador) {
-            return;
-        }
-
-        const imagen = tarjeta.querySelector(".player-photo");
-
-        if (!imagen) {
-            return;
-        }
-
-        imagen.src = jugador.foto + "?v=3";
-        imagen.alt = jugador.nombre;
-
-    });
-
-}
-
-
-/* =========================
-   ABRIR JUGADOR
-========================= */
+/* =========================================================
+   MODAL DE JUGADORES
+========================================================= */
 
 function abrirJugador(id) {
 
@@ -99,32 +68,21 @@ function abrirJugador(id) {
     }
 
     const modal = document.getElementById("jugadorModal");
+
     const imagen = document.getElementById("jugadorImagen");
-    const nombre = document.getElementById("jugadorNombre");
     const posicion = document.getElementById("jugadorPosicion");
+    const nombre = document.getElementById("jugadorNombre");
     const descripcion = document.getElementById("jugadorDescripcion");
     const instagram = document.getElementById("jugadorInstagram");
 
-    if (
-        !modal ||
-        !imagen ||
-        !nombre ||
-        !posicion ||
-        !descripcion ||
-        !instagram
-    ) {
-        return;
-    }
-
-    imagen.src = jugador.foto + "?v=3";
+    imagen.src = jugador.foto;
     imagen.alt = jugador.nombre;
 
-    nombre.textContent = jugador.nombre;
     posicion.textContent = jugador.posicion;
+    nombre.textContent = jugador.nombre;
     descripcion.textContent = jugador.descripcion;
 
-
-    if (jugador.instagram !== "") {
+    if (jugador.instagram) {
 
         instagram.href = jugador.instagram;
         instagram.style.display = "inline-block";
@@ -136,25 +94,15 @@ function abrirJugador(id) {
 
     }
 
-
     modal.classList.add("activo");
 
     document.body.style.overflow = "hidden";
-
 }
 
-
-/* =========================
-   CERRAR JUGADOR
-========================= */
 
 function cerrarJugador() {
 
     const modal = document.getElementById("jugadorModal");
-
-    if (!modal) {
-        return;
-    }
 
     modal.classList.remove("activo");
 
@@ -163,28 +111,22 @@ function cerrarJugador() {
 }
 
 
-/* =========================
-   CLIC FUERA DEL MODAL
-========================= */
+/* Cerrar modal haciendo clic fuera */
 
 document.addEventListener("click", function(event) {
 
     const modal = document.getElementById("jugadorModal");
 
-    if (!modal) {
-        return;
-    }
-
-    if (event.target === modal) {
+    if (
+        event.target === modal
+    ) {
         cerrarJugador();
     }
 
 });
 
 
-/* =========================
-   ESC PARA CERRAR
-========================= */
+/* Cerrar modal con ESC */
 
 document.addEventListener("keydown", function(event) {
 
@@ -195,212 +137,198 @@ document.addEventListener("keydown", function(event) {
 });
 
 
-/* =========================
-   PROGRESO DEL SORTEO
-========================= */
+/* =========================================================
+   FOTOS DE LAS TARJETAS
+========================================================= */
 
-function actualizarProgreso() {
+document.addEventListener("DOMContentLoaded", function() {
 
-    const actual = 6702;
-    const objetivo = 10000;
+    const tarjetas = document.querySelectorAll(".player-card");
 
-    const porcentaje = (actual / objetivo) * 100;
-    const faltante = objetivo - actual;
+    tarjetas.forEach(function(tarjeta) {
+
+        const id = tarjeta.dataset.player;
+
+        const jugador = jugadores[id];
+
+        if (!jugador) {
+            return;
+        }
+
+        const foto = tarjeta.querySelector(".player-photo");
+
+        if (foto) {
+
+            foto.src = jugador.foto;
+            foto.alt = jugador.nombre;
+
+        }
+
+    });
+
+});
 
 
-    const numeroActual =
-        document.getElementById("numeroActual");
+/* =========================================================
+   BARRA DE PROGRESO DEL SORTEO
+========================================================= */
 
-    const porcentajeElemento =
-        document.getElementById("porcentaje");
+function actualizarSorteo() {
 
-    const cantidadFaltante =
-        document.getElementById("cantidadFaltante");
+    const actual = 6807;
+    const meta = 10000;
 
-    const barra =
-        document.getElementById("barraProgreso");
+    const porcentaje = (actual / meta) * 100;
+    const faltante = meta - actual;
 
+    const numeroActual = document.getElementById("numeroActual");
+    const porcentajeElemento = document.getElementById("porcentaje");
+    const cantidadFaltante = document.getElementById("cantidadFaltante");
+    const barra = document.getElementById("barraProgreso");
 
     if (numeroActual) {
-
-        numeroActual.textContent =
-            actual.toLocaleString("es-MX");
-
+        numeroActual.textContent = actual.toLocaleString("es-MX");
     }
-
 
     if (porcentajeElemento) {
-
         porcentajeElemento.textContent =
             porcentaje.toFixed(2) + "%";
-
     }
-
 
     if (cantidadFaltante) {
-
         cantidadFaltante.textContent =
             faltante.toLocaleString("es-MX");
-
     }
 
-
     if (barra) {
-
-        barra.style.width =
-            porcentaje + "%";
-
+        barra.style.width = porcentaje + "%";
     }
 
 }
 
+actualizarSorteo();
 
-/* =========================
-   CONTADOR
-========================= */
+
+/* =========================================================
+   CONTADOR DEL SORTEO
+========================================================= */
 
 function actualizarContador() {
 
-    /*
-     * 14 de septiembre de 2026
-     * 23:59:59
-     * Zona horaria de México (-06:00)
-     */
+    const fechaFinal = new Date(
+        "2026-09-14T23:59:59"
+    ).getTime();
 
-    const fechaObjetivo =
-        new Date(
-            "2026-09-14T23:59:59-06:00"
-        ).getTime();
+    const ahora = new Date().getTime();
 
+    const diferencia = fechaFinal - ahora;
 
-    const ahora = Date.now();
-
-    const diferencia =
-        fechaObjetivo - ahora;
-
-
-    const diasElemento =
-        document.getElementById("dias");
-
-    const horasElemento =
-        document.getElementById("horas");
-
-    const minutosElemento =
-        document.getElementById("minutos");
-
-    const segundosElemento =
-        document.getElementById("segundos");
-
-
-    /* =========================
-       TERMINÓ EL CONTADOR
-    ========================== */
+    const dias = document.getElementById("dias");
+    const horas = document.getElementById("horas");
+    const minutos = document.getElementById("minutos");
+    const segundos = document.getElementById("segundos");
 
     if (diferencia <= 0) {
 
-        if (diasElemento)
-            diasElemento.textContent = "00";
-
-        if (horasElemento)
-            horasElemento.textContent = "00";
-
-        if (minutosElemento)
-            minutosElemento.textContent = "00";
-
-        if (segundosElemento)
-            segundosElemento.textContent = "00";
+        if (dias) dias.textContent = "00";
+        if (horas) horas.textContent = "00";
+        if (minutos) minutos.textContent = "00";
+        if (segundos) segundos.textContent = "00";
 
         return;
-
     }
 
+    const diasNumero =
+        Math.floor(diferencia / (1000 * 60 * 60 * 24));
 
-    /* =========================
-       CALCULAR TIEMPO
-    ========================== */
-
-    const totalSegundos =
-        Math.floor(diferencia / 1000);
-
-
-    const dias =
+    const horasNumero =
         Math.floor(
-            totalSegundos / 86400
+            (diferencia % (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
         );
 
-
-    const horas =
+    const minutosNumero =
         Math.floor(
-            (totalSegundos % 86400) / 3600
+            (diferencia % (1000 * 60 * 60)) /
+            (1000 * 60)
         );
 
-
-    const minutos =
+    const segundosNumero =
         Math.floor(
-            (totalSegundos % 3600) / 60
+            (diferencia % (1000 * 60)) /
+            1000
         );
 
-
-    const segundos =
-        totalSegundos % 60;
-
-
-    /* =========================
-       MOSTRAR
-    ========================== */
-
-    if (diasElemento) {
-
-        diasElemento.textContent =
-            String(dias).padStart(2, "0");
-
+    if (dias) {
+        dias.textContent =
+            String(diasNumero).padStart(2, "0");
     }
 
-
-    if (horasElemento) {
-
-        horasElemento.textContent =
-            String(horas).padStart(2, "0");
-
+    if (horas) {
+        horas.textContent =
+            String(horasNumero).padStart(2, "0");
     }
 
-
-    if (minutosElemento) {
-
-        minutosElemento.textContent =
-            String(minutos).padStart(2, "0");
-
+    if (minutos) {
+        minutos.textContent =
+            String(minutosNumero).padStart(2, "0");
     }
 
-
-    if (segundosElemento) {
-
-        segundosElemento.textContent =
-            String(segundos).padStart(2, "0");
-
+    if (segundos) {
+        segundos.textContent =
+            String(segundosNumero).padStart(2, "0");
     }
 
 }
 
+actualizarContador();
 
-/* =========================
-   INICIAR PÁGINA
-========================= */
+setInterval(actualizarContador, 1000);
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
 
-        cargarFotos();
+/* =========================================================
+   ACCESO PRIVADO
+========================================================= */
 
-        actualizarProgreso();
+const CONTRASENA =
+    "q4029o3402934¿01934¿20194¿31293¿211923'92130'192'30";
 
-        actualizarContador();
 
-        setInterval(
-            actualizarContador,
-            1000
-        );
+function verificarAcceso(event) {
+
+    event.preventDefault();
+
+    const input =
+        document.getElementById("contrasenaAcceso");
+
+    const mensaje =
+        document.getElementById("mensajeAcceso");
+
+    if (!input || !mensaje) {
+        return;
+    }
+
+    const contraseñaIntroducida =
+        input.value;
+
+    if (contraseñaIntroducida === CONTRASENA) {
+
+        mensaje.textContent =
+            "ACCESO COMPLETADO";
+
+        mensaje.style.color = "#ff4fa3";
+
+        input.value = "";
+
+    } else {
+
+        mensaje.textContent =
+            "ACCESO DENEGADO";
+
+        mensaje.style.color = "#ff4fa3";
+
+        input.value = "";
 
     }
-);
+
+}
