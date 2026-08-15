@@ -30,34 +30,42 @@ const jugadores = {
         descripcion: "Jugador de Chapala Pigs.",
         foto: "fotos/user.jpg",
         instagram: ""
+    },
+
+    alonso: {
+        nombre: "ALONSO",
+        posicion: "JUGADOR",
+        descripcion: "Nuevo jugador de Chapala Pigs.",
+        foto: "fotos/alonso.jpg",
+        instagram: "https://www.instagram.com/alonso3palacios/"
     }
 
 };
 
 
 /* =========================
-   FOTOS DE JUGADORES
+   CARGAR FOTOS
 ========================= */
 
 function cargarFotos() {
 
-    const tarjetas =
-        document.querySelectorAll(".player-card");
+    const tarjetas = document.querySelectorAll(".player-card");
 
     tarjetas.forEach(function(tarjeta) {
 
-        const id =
-            tarjeta.getAttribute("data-player");
+        const id = tarjeta.getAttribute("data-player");
 
-        const jugador =
-            jugadores[id];
+        const jugador = jugadores[id];
 
-        if (!jugador) return;
+        if (!jugador) {
+            return;
+        }
 
-        const imagen =
-            tarjeta.querySelector(".player-photo");
+        const imagen = tarjeta.querySelector(".player-photo");
 
-        if (!imagen) return;
+        if (!imagen) {
+            return;
+        }
 
         imagen.src = jugador.foto;
         imagen.alt = jugador.nombre;
@@ -73,67 +81,45 @@ function cargarFotos() {
 
 function abrirJugador(id) {
 
-    const jugador =
-        jugadores[id];
+    const jugador = jugadores[id];
 
-    if (!jugador) return;
+    if (!jugador) {
+        return;
+    }
 
-    const modal =
-        document.getElementById("jugadorModal");
+    const modal = document.getElementById("jugadorModal");
+    const imagen = document.getElementById("jugadorImagen");
+    const nombre = document.getElementById("jugadorNombre");
+    const posicion = document.getElementById("jugadorPosicion");
+    const descripcion = document.getElementById("jugadorDescripcion");
+    const instagram = document.getElementById("jugadorInstagram");
 
-    const imagen =
-        document.getElementById("jugadorImagen");
-
-    const nombre =
-        document.getElementById("jugadorNombre");
-
-    const posicion =
-        document.getElementById("jugadorPosicion");
-
-    const descripcion =
-        document.getElementById("jugadorDescripcion");
-
-    const instagram =
-        document.getElementById("jugadorInstagram");
-
-    if (!modal) return;
-
+    if (!modal) {
+        return;
+    }
 
     imagen.src = jugador.foto;
     imagen.alt = jugador.nombre;
 
-    nombre.textContent =
-        jugador.nombre;
+    nombre.textContent = jugador.nombre;
+    posicion.textContent = jugador.posicion;
+    descripcion.textContent = jugador.descripcion;
 
-    posicion.textContent =
-        jugador.posicion;
+    if (jugador.instagram !== "") {
 
-    descripcion.textContent =
-        jugador.descripcion;
-
-
-    if (jugador.instagram) {
-
-        instagram.href =
-            jugador.instagram;
-
-        instagram.style.display =
-            "inline-block";
+        instagram.href = jugador.instagram;
+        instagram.style.display = "inline-block";
 
     } else {
 
         instagram.removeAttribute("href");
-
-        instagram.style.display =
-            "none";
+        instagram.style.display = "none";
 
     }
 
-
     modal.classList.add("activo");
 
-    document.body.style.overflow =
-        "hidden";
+    document.body.style.overflow = "hidden";
 
 }
 
@@ -144,10 +130,11 @@ function abrirJugador(id) {
 
 function cerrarJugador() {
 
-    const modal =
-        document.getElementById("jugadorModal");
+    const modal = document.getElementById("jugadorModal");
 
-    if (!modal) return;
+    if (!modal) {
+        return;
+    }
 
     modal.classList.remove("activo");
 
@@ -157,290 +144,154 @@ function cerrarJugador() {
 
 
 /* =========================
-   CERRAR AL TOCAR AFUERA
+   CLIC FUERA DEL MODAL
 ========================= */
 
 document.addEventListener("click", function(event) {
 
-    const modal =
-        document.getElementById("jugadorModal");
+    const modal = document.getElementById("jugadorModal");
 
-    if (!modal) return;
+    if (!modal) {
+        return;
+    }
 
     if (event.target === modal) {
-
         cerrarJugador();
-
     }
 
 });
 
 
 /* =========================
-   CERRAR CON ESC
+   ESC PARA CERRAR
 ========================= */
 
 document.addEventListener("keydown", function(event) {
 
     if (event.key === "Escape") {
-
         cerrarJugador();
-
     }
 
 });
 
 
 /* =========================
-   DATOS DEL SORTEO
+   PROGRESO SORTEO
 ========================= */
 
 function actualizarProgreso() {
 
-    /*
-       ACTUALIZACIÓN MANUAL
-       --------------------
-       Seguidores: 6,571
-       Meta: 10,000
-       Actualizado: 14 AGO 2026 - 11:58
-    */
+    const actual = 6571;
+    const objetivo = 10000;
 
-    const actual =
-        6571;
+    const porcentaje = (actual / objetivo) * 100;
+    const faltante = objetivo - actual;
 
-    const objetivo =
-        10000;
-
-    const porcentaje =
-        (actual / objetivo) * 100;
-
-    const faltante =
-        objetivo - actual;
-
-
-    const numeroActual =
-        document.getElementById("numeroActual");
-
-    const porcentajeElemento =
-        document.getElementById("porcentaje");
-
-    const cantidadFaltante =
-        document.getElementById("cantidadFaltante");
-
-    const barra =
-        document.getElementById("barraProgreso");
-
+    const numeroActual = document.getElementById("numeroActual");
+    const porcentajeElemento = document.getElementById("porcentaje");
+    const cantidadFaltante = document.getElementById("cantidadFaltante");
+    const barra = document.getElementById("barraProgreso");
 
     if (numeroActual) {
-
         numeroActual.textContent =
             actual.toLocaleString("es-MX");
-
     }
-
 
     if (porcentajeElemento) {
-
         porcentajeElemento.textContent =
             porcentaje.toFixed(2) + "%";
-
     }
-
 
     if (cantidadFaltante) {
-
         cantidadFaltante.textContent =
             faltante.toLocaleString("es-MX");
-
     }
 
-
     if (barra) {
-
-        barra.style.width =
-            porcentaje + "%";
-
+        barra.style.width = porcentaje + "%";
     }
 
 }
 
 
 /* =========================
-   CONTADOR DE TIEMPO
+   CONTADOR
 ========================= */
 
 function actualizarContador() {
 
-    /*
-       FECHA FINAL:
-       14 DE SEPTIEMBRE DE 2026
-       23:59:59
-
-       El mes 8 representa septiembre
-       porque JavaScript empieza los meses
-       desde 0.
-    */
-
     const fechaObjetivo =
-        new Date(
-            2026,
-            8,
-            14,
-            23,
-            59,
-            59
-        );
+        new Date("2026-09-14T23:59:59-06:00").getTime();
 
+    const ahora = Date.now();
 
-    const ahora =
-        new Date();
+    const diferencia = fechaObjetivo - ahora;
 
-
-    let diferencia =
-        fechaObjetivo.getTime() -
-        ahora.getTime();
-
-
-    const diasElemento =
-        document.getElementById("dias");
-
-    const horasElemento =
-        document.getElementById("horas");
-
-    const minutosElemento =
-        document.getElementById("minutos");
-
-    const segundosElemento =
-        document.getElementById("segundos");
-
-
-    /* =========================
-       SI YA TERMINÓ
-    ========================= */
+    const diasElemento = document.getElementById("dias");
+    const horasElemento = document.getElementById("horas");
+    const minutosElemento = document.getElementById("minutos");
+    const segundosElemento = document.getElementById("segundos");
 
     if (diferencia <= 0) {
 
-        if (diasElemento)
-            diasElemento.textContent = "00";
-
-        if (horasElemento)
-            horasElemento.textContent = "00";
-
-        if (minutosElemento)
-            minutosElemento.textContent = "00";
-
-        if (segundosElemento)
-            segundosElemento.textContent = "00";
+        if (diasElemento) diasElemento.textContent = "00";
+        if (horasElemento) horasElemento.textContent = "00";
+        if (minutosElemento) minutosElemento.textContent = "00";
+        if (segundosElemento) segundosElemento.textContent = "00";
 
         return;
-
     }
 
-
-    /* =========================
-       CÁLCULOS
-    ========================= */
+    const totalSegundos =
+        Math.floor(diferencia / 1000);
 
     const dias =
-        Math.floor(
-            diferencia /
-            (1000 * 60 * 60 * 24)
-        );
-
-
-    diferencia =
-        diferencia %
-        (1000 * 60 * 60 * 24);
-
+        Math.floor(totalSegundos / 86400);
 
     const horas =
-        Math.floor(
-            diferencia /
-            (1000 * 60 * 60)
-        );
-
-
-    diferencia =
-        diferencia %
-        (1000 * 60 * 60);
-
+        Math.floor((totalSegundos % 86400) / 3600);
 
     const minutos =
-        Math.floor(
-            diferencia /
-            (1000 * 60)
-        );
-
-
-    diferencia =
-        diferencia %
-        (1000 * 60);
-
+        Math.floor((totalSegundos % 3600) / 60);
 
     const segundos =
-        Math.floor(
-            diferencia /
-            1000
-        );
-
-
-    /* =========================
-       MOSTRAR
-    ========================= */
+        totalSegundos % 60;
 
     if (diasElemento) {
-
         diasElemento.textContent =
             String(dias).padStart(2, "0");
-
     }
-
 
     if (horasElemento) {
-
         horasElemento.textContent =
             String(horas).padStart(2, "0");
-
     }
-
 
     if (minutosElemento) {
-
         minutosElemento.textContent =
             String(minutos).padStart(2, "0");
-
     }
 
-
     if (segundosElemento) {
-
         segundosElemento.textContent =
             String(segundos).padStart(2, "0");
-
     }
 
 }
 
 
 /* =========================
-   INICIAR TODO
+   INICIAR
 ========================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
+document.addEventListener("DOMContentLoaded", function() {
 
-        cargarFotos();
+    cargarFotos();
 
-        actualizarProgreso();
+    actualizarProgreso();
 
-        actualizarContador();
+    actualizarContador();
 
+    setInterval(actualizarContador, 1000);
 
-        setInterval(
-            actualizarContador,
-            1000
-        );
-
-    }
-);
+});
