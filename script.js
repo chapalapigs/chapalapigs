@@ -28,6 +28,14 @@ const jugadores = {
         instagram: "https://www.instagram.com/alonso3palacios/"
     },
 
+    silver: {
+        nombre: "SILVER",
+        posicion: "JUGADOR",
+        descripcion: "Nuevo jugador de Chapala Pigs.",
+        foto: "fotos/silver.jpg",
+        instagram: "https://www.instagram.com/sxg_28/"
+    },
+
     gabriel: {
         nombre: "GABRIEL",
         posicion: "JUGADOR",
@@ -70,12 +78,7 @@ function cargarFotos() {
             return;
         }
 
-        /*
-         * Marca de versión para evitar problemas
-         * de caché en GitHub Pages.
-         */
-
-        imagen.src = jugador.foto + "?v=2";
+        imagen.src = jugador.foto + "?v=3";
         imagen.alt = jugador.nombre;
 
     });
@@ -113,13 +116,11 @@ function abrirJugador(id) {
         return;
     }
 
-    imagen.src = jugador.foto + "?v=2";
+    imagen.src = jugador.foto + "?v=3";
     imagen.alt = jugador.nombre;
 
     nombre.textContent = jugador.nombre;
-
     posicion.textContent = jugador.posicion;
-
     descripcion.textContent = jugador.descripcion;
 
 
@@ -200,7 +201,7 @@ document.addEventListener("keydown", function(event) {
 
 function actualizarProgreso() {
 
-    const actual = 6647;
+    const actual = 6702;
     const objetivo = 10000;
 
     const porcentaje = (actual / objetivo) * 100;
