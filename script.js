@@ -36,7 +36,7 @@ const jugadores = {
 
 
 /* =========================
-   CARGAR FOTOS DE TARJETAS
+   FOTOS DE JUGADORES
 ========================= */
 
 function cargarFotos() {
@@ -52,22 +52,15 @@ function cargarFotos() {
         const jugador =
             jugadores[id];
 
-        if (!jugador) {
-            return;
-        }
+        if (!jugador) return;
 
         const imagen =
             tarjeta.querySelector(".player-photo");
 
-        if (!imagen) {
-            return;
-        }
+        if (!imagen) return;
 
-        imagen.src =
-            jugador.foto;
-
-        imagen.alt =
-            jugador.nombre;
+        imagen.src = jugador.foto;
+        imagen.alt = jugador.nombre;
 
     });
 
@@ -75,7 +68,7 @@ function cargarFotos() {
 
 
 /* =========================
-   ABRIR TARJETA
+   ABRIR JUGADOR
 ========================= */
 
 function abrirJugador(id) {
@@ -83,10 +76,7 @@ function abrirJugador(id) {
     const jugador =
         jugadores[id];
 
-    if (!jugador) {
-        return;
-    }
-
+    if (!jugador) return;
 
     const modal =
         document.getElementById("jugadorModal");
@@ -106,39 +96,23 @@ function abrirJugador(id) {
     const instagram =
         document.getElementById("jugadorInstagram");
 
-
-    if (!modal) {
-        return;
-    }
+    if (!modal) return;
 
 
-    /*
-       IMPORTANTE:
-       La misma foto del objeto jugadores
-       se usa tanto en la tarjeta como
-       dentro del modal.
-    */
-
-    imagen.src =
-        jugador.foto;
-
-    imagen.alt =
-        jugador.nombre;
-
+    imagen.src = jugador.foto;
+    imagen.alt = jugador.nombre;
 
     nombre.textContent =
         jugador.nombre;
 
-
     posicion.textContent =
         jugador.posicion;
-
 
     descripcion.textContent =
         jugador.descripcion;
 
 
-    if (jugador.instagram !== "") {
+    if (jugador.instagram) {
 
         instagram.href =
             jugador.instagram;
@@ -158,13 +132,14 @@ function abrirJugador(id) {
 
     modal.classList.add("activo");
 
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow =
+        "hidden";
 
 }
 
 
 /* =========================
-   CERRAR TARJETA
+   CERRAR JUGADOR
 ========================= */
 
 function cerrarJugador() {
@@ -172,9 +147,7 @@ function cerrarJugador() {
     const modal =
         document.getElementById("jugadorModal");
 
-    if (!modal) {
-        return;
-    }
+    if (!modal) return;
 
     modal.classList.remove("activo");
 
@@ -184,7 +157,7 @@ function cerrarJugador() {
 
 
 /* =========================
-   CERRAR AL HACER CLIC FUERA
+   CERRAR AL TOCAR AFUERA
 ========================= */
 
 document.addEventListener("click", function(event) {
@@ -192,9 +165,7 @@ document.addEventListener("click", function(event) {
     const modal =
         document.getElementById("jugadorModal");
 
-    if (!modal) {
-        return;
-    }
+    if (!modal) return;
 
     if (event.target === modal) {
 
@@ -221,14 +192,24 @@ document.addEventListener("keydown", function(event) {
 
 
 /* =========================
-   PROGRESO DEL SORTEO
+   DATOS DEL SORTEO
 ========================= */
 
 function actualizarProgreso() {
 
-    const actual = 6474;
+    /*
+       ACTUALIZACIÓN MANUAL
+       --------------------
+       Seguidores: 6,571
+       Meta: 10,000
+       Actualizado: 14 AGO 2026 - 11:58
+    */
 
-    const objetivo = 10000;
+    const actual =
+        6571;
+
+    const objetivo =
+        10000;
 
     const porcentaje =
         (actual / objetivo) * 100;
@@ -285,19 +266,39 @@ function actualizarProgreso() {
 
 
 /* =========================
-   CONTADOR
+   CONTADOR DE TIEMPO
 ========================= */
 
 function actualizarContador() {
 
+    /*
+       FECHA FINAL:
+       14 DE SEPTIEMBRE DE 2026
+       23:59:59
+
+       El mes 8 representa septiembre
+       porque JavaScript empieza los meses
+       desde 0.
+    */
+
     const fechaObjetivo =
-        new Date("2026-09-14T23:59:59").getTime();
+        new Date(
+            2026,
+            8,
+            14,
+            23,
+            59,
+            59
+        );
+
 
     const ahora =
-        new Date().getTime();
+        new Date();
 
-    const diferencia =
-        fechaObjetivo - ahora;
+
+    let diferencia =
+        fechaObjetivo.getTime() -
+        ahora.getTime();
 
 
     const diasElemento =
@@ -313,27 +314,32 @@ function actualizarContador() {
         document.getElementById("segundos");
 
 
+    /* =========================
+       SI YA TERMINÓ
+    ========================= */
+
     if (diferencia <= 0) {
 
-        if (diasElemento) {
+        if (diasElemento)
             diasElemento.textContent = "00";
-        }
 
-        if (horasElemento) {
+        if (horasElemento)
             horasElemento.textContent = "00";
-        }
 
-        if (minutosElemento) {
+        if (minutosElemento)
             minutosElemento.textContent = "00";
-        }
 
-        if (segundosElemento) {
+        if (segundosElemento)
             segundosElemento.textContent = "00";
-        }
 
         return;
+
     }
 
+
+    /* =========================
+       CÁLCULOS
+    ========================= */
 
     const dias =
         Math.floor(
@@ -342,29 +348,45 @@ function actualizarContador() {
         );
 
 
+    diferencia =
+        diferencia %
+        (1000 * 60 * 60 * 24);
+
+
     const horas =
         Math.floor(
-            (diferencia %
-                (1000 * 60 * 60 * 24)) /
+            diferencia /
             (1000 * 60 * 60)
         );
 
 
+    diferencia =
+        diferencia %
+        (1000 * 60 * 60);
+
+
     const minutos =
         Math.floor(
-            (diferencia %
-                (1000 * 60 * 60)) /
+            diferencia /
             (1000 * 60)
         );
 
 
+    diferencia =
+        diferencia %
+        (1000 * 60);
+
+
     const segundos =
         Math.floor(
-            (diferencia %
-                (1000 * 60)) /
+            diferencia /
             1000
         );
 
+
+    /* =========================
+       MOSTRAR
+    ========================= */
 
     if (diasElemento) {
 

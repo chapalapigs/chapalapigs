@@ -12,672 +12,617 @@
 
 <body>
 
-    <!-- =========================
-         MENÚ
-    ========================= -->
+<header>
 
-    <header>
+    <div class="logo">
+        CHAPALA PIGS
+    </div>
 
-        <div class="logo">
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#jugadores">Equipo</a>
+        <a href="#partidos">Partidos</a>
+        <a href="#noticias">Noticias</a>
+        <a href="#sorteos">Sorteos</a>
+        <a href="#pigs-online">Pigs Online</a>
+        <a href="#tienda">Tienda</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero" id="inicio">
+
+        <p class="small-title">
             CHAPALA PIGS
+        </p>
+
+        <h1>
+            EL EQUIPO
+        </h1>
+
+        <p class="hero-text">
+            El equipo. La pasión. La historia.
+        </p>
+
+        <a href="#jugadores" class="button">
+            CONOCER AL EQUIPO
+        </a>
+
+    </section>
+
+
+    <!-- JUGADORES -->
+
+    <section class="players" id="jugadores">
+
+        <div class="section-title">
+
+            <span>CHAPALA PIGS</span>
+
+            <h2>NUESTRO EQUIPO</h2>
+
+            <p>
+                Conoce a los jugadores de Chapala Pigs.
+            </p>
+
         </div>
 
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#jugadores">Equipo</a>
-            <a href="#partidos">Partidos</a>
-            <a href="#noticias">Noticias</a>
-            <a href="#sorteos">Sorteos</a>
-            <a href="#tienda">Tienda</a>
-        </nav>
 
-    </header>
+        <div class="players-grid">
 
+            <div
+                class="player-card captain"
+                data-player="andres"
+                onclick="abrirJugador('andres')"
+            >
 
-    <main>
-
-        <!-- =========================
-             HERO
-        ========================= -->
-
-        <section class="hero" id="inicio">
-
-            <p class="small-title">
-                CHAPALA PIGS
-            </p>
-
-            <h1>
-                EL EQUIPO
-            </h1>
-
-            <p class="hero-text">
-                El equipo. La pasión. La historia.
-            </p>
-
-            <a href="#jugadores" class="button">
-                CONOCER AL EQUIPO
-            </a>
-
-        </section>
-
-
-        <!-- =========================
-             JUGADORES
-        ========================= -->
-
-        <section class="players" id="jugadores">
-
-            <div class="section-title">
-
-                <span>CHAPALA PIGS</span>
-
-                <h2>NUESTRO EQUIPO</h2>
-
-                <p>
-                    Conoce a los jugadores de Chapala Pigs.
-                </p>
-
-            </div>
-
-
-            <div class="players-grid">
-
-                <!-- ANDRÉS -->
-
-                <div
-                    class="player-card captain"
-                    data-player="andres"
-                    onclick="abrirJugador('andres')"
+                <img
+                    class="player-photo"
+                    src=""
+                    alt="Andrés"
                 >
 
-                    <img
-                        class="player-photo"
-                        src=""
-                        alt="Andrés"
-                    >
+                <div class="player-info">
 
-                    <div class="player-info">
-
-                        <span class="position">
-                            CAPITÁN
-                        </span>
-
-                        <h3>
-                            ANDRÉS
-                        </h3>
-
-                    </div>
-
-                </div>
-
-
-                <!-- KARLA -->
-
-                <div
-                    class="player-card"
-                    data-player="karla"
-                    onclick="abrirJugador('karla')"
-                >
-
-                    <img
-                        class="player-photo"
-                        src=""
-                        alt="Karla"
-                    >
-
-                    <div class="player-info">
-
-                        <span class="position">
-                            JUGADORA
-                        </span>
-
-                        <h3>
-                            KARLA
-                        </h3>
-
-                    </div>
-
-                </div>
-
-
-                <!-- GABRIEL -->
-
-                <div
-                    class="player-card"
-                    data-player="gabriel"
-                    onclick="abrirJugador('gabriel')"
-                >
-
-                    <img
-                        class="player-photo"
-                        src=""
-                        alt="Gabriel"
-                    >
-
-                    <div class="player-info">
-
-                        <span class="position">
-                            JUGADOR
-                        </span>
-
-                        <h3>
-                            GABRIEL
-                        </h3>
-
-                    </div>
-
-                </div>
-
-
-                <!-- DAMIÁN -->
-
-                <div
-                    class="player-card"
-                    data-player="damian"
-                    onclick="abrirJugador('damian')"
-                >
-
-                    <img
-                        class="player-photo"
-                        src=""
-                        alt="Damián"
-                    >
-
-                    <div class="player-info">
-
-                        <span class="position">
-                            JUGADOR
-                        </span>
-
-                        <h3>
-                            DAMIÁN
-                        </h3>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             PARTIDOS
-        ========================= -->
-
-        <section id="partidos" class="normal-section">
-
-            <div class="section-title">
-
-                <span>CHAPALA PIGS</span>
-
-                <h2>PARTIDOS</h2>
-
-                <p>
-                    Próximamente.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             NOTICIAS
-        ========================= -->
-
-        <section id="noticias" class="normal-section noticias-section">
-
-            <div class="section-title">
-
-                <span>CHAPALA PIGS NOTICIAS</span>
-
-                <h2>ÚLTIMAS NOTICIAS</h2>
-
-                <p>
-                    Toda la actualidad de Chapala Pigs.
-                </p>
-
-            </div>
-
-
-            <div class="noticias-grid">
-
-                <!-- MBAPPÉ -->
-
-                <article class="noticia-card">
-
-                    <span class="noticia-categoria">
-                        FICHAJE
-                    </span>
-
-                    <h3>
-                        ¡KYLIAN MBAPPÉ LLEGA A CHAPALA PIGS!
-                    </h3>
-
-                    <p>
-                        Chapala Pigs anuncia la llegada de
-                        Kylian Mbappé como su último gran fichaje.
-                        El delantero llega para aportar velocidad,
-                        desequilibrio y gol al ataque del equipo.
-                    </p>
-
-                </article>
-
-
-                <!-- DAMIÁN -->
-
-                <article class="noticia-card">
-
-                    <span class="noticia-categoria">
-                        ACTUALIDAD
-                    </span>
-
-                    <h3>
-                        DAMIÁN ESTÁ EN RACHA
-                    </h3>
-
-                    <p>
-                        Damián continúa destacando como uno de los
-                        jugadores más peligrosos de Chapala Pigs.
-                        Sus goles y buenas actuaciones lo han
-                        convertido en una pieza fundamental del equipo.
-                    </p>
-
-                </article>
-
-
-                <!-- ANDRÉS -->
-
-                <article class="noticia-card">
-
-                    <span class="noticia-categoria">
+                    <span class="position">
                         CAPITÁN
                     </span>
 
                     <h3>
-                        ANDRÉS SIGUE AL FRENTE
+                        ANDRÉS
                     </h3>
-
-                    <p>
-                        El capitán Andrés continúa liderando al equipo
-                        dentro y fuera de la cancha. Su liderazgo y
-                        compromiso lo mantienen como una de las figuras
-                        principales de Chapala Pigs.
-                    </p>
-
-                </article>
-
-
-                <!-- GABRIEL -->
-
-                <article class="noticia-card">
-
-                    <span class="noticia-categoria">
-                        EQUIPO
-                    </span>
-
-                    <h3>
-                        GABRIEL SIGUE CRECIENDO
-                    </h3>
-
-                    <p>
-                        Gabriel continúa demostrando su evolución
-                        partido tras partido y cada vez tiene mayor
-                        participación dentro del equipo.
-                    </p>
-
-                </article>
-
-
-                <!-- KARLA -->
-
-                <article class="noticia-card">
-
-                    <span class="noticia-categoria">
-                        EQUIPO
-                    </span>
-
-                    <h3>
-                        KARLA, PIEZA IMPORTANTE
-                    </h3>
-
-                    <p>
-                        Karla continúa aportando intensidad y buenas
-                        actuaciones. Su presencia se ha convertido
-                        en una parte importante del equipo.
-                    </p>
-
-                </article>
-
-
-                <!-- INSTAGRAM NOTICIAS -->
-
-                <article class="noticia-card noticias-instagram">
-
-                    <span class="noticia-categoria">
-                        REDES SOCIALES
-                    </span>
-
-                    <h3>
-                        CHAPALA PIGS NOTICIAS
-                    </h3>
-
-                    <p>
-                        Sigue todas las noticias, novedades,
-                        fichajes y actualizaciones del equipo
-                        directamente en nuestra cuenta oficial
-                        de noticias.
-                    </p>
-
-                    <a
-                        href="https://www.instagram.com/chapalapigsnoticias/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button noticias-button"
-                    >
-                        VER INSTAGRAM
-                    </a>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             SORTEOS
-        ========================= -->
-
-        <section id="sorteos" class="sorteos-section">
-
-            <div class="section-title">
-
-                <span>CHAPALA PIGS</span>
-
-                <h2>SORTEOS</h2>
-
-                <p>
-                    Seguimos creciendo juntos.
-                </p>
-
-            </div>
-
-
-            <div class="sorteo-container">
-
-                <div class="sorteo-header">
-
-                    <div>
-
-                        <span class="sorteo-label">
-                            PRÓXIMO OBJETIVO
-                        </span>
-
-                        <h3>
-                            10,000
-                        </h3>
-
-                    </div>
-
-                    <div class="sorteo-meta">
-                        META
-                    </div>
 
                 </div>
 
+            </div>
 
-                <div class="progreso-info">
 
-                    <div>
+            <div
+                class="player-card"
+                data-player="karla"
+                onclick="abrirJugador('karla')"
+            >
 
-                        <strong id="numeroActual">
-                            6,474
-                        </strong>
+                <img
+                    class="player-photo"
+                    src=""
+                    alt="Karla"
+                >
 
-                        <span>
-                            / 10,000
-                        </span>
+                <div class="player-info">
 
-                    </div>
+                    <span class="position">
+                        JUGADORA
+                    </span>
 
-                    <strong id="porcentaje">
-                        64.74%
+                    <h3>
+                        KARLA
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="player-card"
+                data-player="gabriel"
+                onclick="abrirJugador('gabriel')"
+            >
+
+                <img
+                    class="player-photo"
+                    src=""
+                    alt="Gabriel"
+                >
+
+                <div class="player-info">
+
+                    <span class="position">
+                        JUGADOR
+                    </span>
+
+                    <h3>
+                        GABRIEL
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="player-card"
+                data-player="damian"
+                onclick="abrirJugador('damian')"
+            >
+
+                <img
+                    class="player-photo"
+                    src=""
+                    alt="Damián"
+                >
+
+                <div class="player-info">
+
+                    <span class="position">
+                        JUGADOR
+                    </span>
+
+                    <h3>
+                        DAMIÁN
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PARTIDOS -->
+
+    <section id="partidos" class="normal-section">
+
+        <div class="section-title">
+
+            <span>CHAPALA PIGS</span>
+
+            <h2>PARTIDOS</h2>
+
+            <p>
+                Próximamente.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- NOTICIAS -->
+
+    <section id="noticias" class="normal-section noticias-section">
+
+        <div class="section-title">
+
+            <span>CHAPALA PIGS NOTICIAS</span>
+
+            <h2>ÚLTIMAS NOTICIAS</h2>
+
+            <p>
+                Toda la actualidad de Chapala Pigs.
+            </p>
+
+        </div>
+
+
+        <div class="noticias-grid">
+
+            <article class="noticia-card">
+
+                <span class="noticia-categoria">
+                    FICHAJE
+                </span>
+
+                <h3>
+                    ¡KYLIAN MBAPPÉ LLEGA A CHAPALA PIGS!
+                </h3>
+
+                <p>
+                    Chapala Pigs anuncia la llegada de
+                    Kylian Mbappé como su último gran fichaje.
+                    El delantero llega para aportar velocidad,
+                    desequilibrio y gol al ataque del equipo.
+                </p>
+
+            </article>
+
+
+            <article class="noticia-card">
+
+                <span class="noticia-categoria">
+                    ACTUALIDAD
+                </span>
+
+                <h3>
+                    DAMIÁN ESTÁ EN RACHA
+                </h3>
+
+                <p>
+                    Damián continúa destacando como uno de los
+                    jugadores más peligrosos de Chapala Pigs.
+                    Sus goles y buenas actuaciones lo han
+                    convertido en una pieza fundamental del equipo.
+                </p>
+
+            </article>
+
+
+            <article class="noticia-card">
+
+                <span class="noticia-categoria">
+                    CAPITÁN
+                </span>
+
+                <h3>
+                    ANDRÉS SIGUE AL FRENTE
+                </h3>
+
+                <p>
+                    El capitán Andrés continúa liderando al equipo
+                    dentro y fuera de la cancha. Su liderazgo y
+                    compromiso lo mantienen como una de las figuras
+                    principales de Chapala Pigs.
+                </p>
+
+            </article>
+
+
+            <article class="noticia-card">
+
+                <span class="noticia-categoria">
+                    EQUIPO
+                </span>
+
+                <h3>
+                    GABRIEL SIGUE CRECIENDO
+                </h3>
+
+                <p>
+                    Gabriel continúa demostrando su evolución
+                    partido tras partido y cada vez tiene mayor
+                    participación dentro del equipo.
+                </p>
+
+            </article>
+
+
+            <article class="noticia-card">
+
+                <span class="noticia-categoria">
+                    EQUIPO
+                </span>
+
+                <h3>
+                    KARLA, PIEZA IMPORTANTE
+                </h3>
+
+                <p>
+                    Karla continúa aportando intensidad y buenas
+                    actuaciones. Su presencia se ha convertido
+                    en una parte importante del equipo.
+                </p>
+
+            </article>
+
+
+            <article class="noticia-card noticias-instagram">
+
+                <span class="noticia-categoria">
+                    REDES SOCIALES
+                </span>
+
+                <h3>
+                    CHAPALA PIGS NOTICIAS
+                </h3>
+
+                <p>
+                    Sigue todas las noticias, novedades,
+                    fichajes y actualizaciones del equipo
+                    directamente en nuestra cuenta oficial
+                    de noticias.
+                </p>
+
+                <a
+                    href="https://www.instagram.com/chapalapigsnoticias/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="button noticias-button"
+                >
+                    VER INSTAGRAM
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- SORTEOS -->
+
+    <section id="sorteos" class="sorteos-section">
+
+        <div class="section-title">
+
+            <span>CHAPALA PIGS</span>
+
+            <h2>SORTEOS</h2>
+
+            <p>
+                Seguimos creciendo juntos.
+            </p>
+
+        </div>
+
+
+        <div class="sorteo-container">
+
+            <div class="sorteo-header">
+
+                <div>
+
+                    <span class="sorteo-label">
+                        PRÓXIMO OBJETIVO
+                    </span>
+
+                    <h3>
+                        10,000
+                    </h3>
+
+                </div>
+
+                <div class="sorteo-meta">
+                    META
+                </div>
+
+            </div>
+
+
+            <div class="progreso-info">
+
+                <div>
+
+                    <strong id="numeroActual">
+                        6,474
+                    </strong>
+
+                    <span>
+                        / 10,000
+                    </span>
+
+                </div>
+
+                <strong id="porcentaje">
+                    64.74%
+                </strong>
+
+            </div>
+
+
+            <div class="barra-progreso">
+
+                <div
+                    id="barraProgreso"
+                    class="progreso"
+                ></div>
+
+            </div>
+
+
+            <div class="sorteo-datos">
+
+                <div class="dato">
+
+                    <span>
+                        ÚLTIMA ACTUALIZACIÓN
+                    </span>
+
+                    <strong>
+                        14 AGO 2026 — 11:58
                     </strong>
 
                 </div>
 
 
-                <div class="barra-progreso">
-
-                    <div
-                        id="barraProgreso"
-                        class="progreso"
-                    ></div>
-
-                </div>
-
-
-                <div class="sorteo-datos">
-
-                    <div class="dato">
-
-                        <span>
-                            ÚLTIMA ACTUALIZACIÓN
-                        </span>
-
-                        <strong>
-                            14 AGO 2026
-                        </strong>
-
-                    </div>
-
-
-                    <div class="dato">
-
-                        <span>
-                            FECHA LÍMITE
-                        </span>
-
-                        <strong>
-                            14 SEP 2026
-                        </strong>
-
-                    </div>
-
-
-                    <div class="dato">
-
-                        <span>
-                            FALTAN
-                        </span>
-
-                        <strong id="cantidadFaltante">
-                            3,526
-                        </strong>
-
-                    </div>
-
-                </div>
-
-
-                <div class="contador">
-
-                    <span class="contador-titulo">
-                        TIEMPO RESTANTE
-                    </span>
-
-                    <div class="contador-numeros">
-
-                        <div>
-                            <strong id="dias">
-                                00
-                            </strong>
-
-                            <span>
-                                DÍAS
-                            </span>
-                        </div>
-
-                        <div>
-                            <strong id="horas">
-                                00
-                            </strong>
-
-                            <span>
-                                HORAS
-                            </span>
-                        </div>
-
-                        <div>
-                            <strong id="minutos">
-                                00
-                            </strong>
-
-                            <span>
-                                MIN
-                            </span>
-                        </div>
-
-                        <div>
-                            <strong id="segundos">
-                                00
-                            </strong>
-
-                            <span>
-                                SEG
-                            </span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="sorteo-mensaje">
+                <div class="dato">
 
                     <span>
-                        CHAPALA PIGS
+                        FECHA LÍMITE
                     </span>
 
-                    <p>
-                        Si alcanzamos los 10,000 dentro del periodo
-                        establecido, se anunciará oficialmente el sorteo.
-                    </p>
+                    <strong>
+                        14 SEP 2026
+                    </strong>
+
+                </div>
+
+
+                <div class="dato">
+
+                    <span>
+                        FALTAN
+                    </span>
+
+                    <strong id="cantidadFaltante">
+                        3,526
+                    </strong>
 
                 </div>
 
             </div>
 
-        </section>
 
+            <div class="contador">
 
-        <!-- =========================
-             TIENDA
-        ========================= -->
-
-        <section id="tienda" class="normal-section">
-
-            <div class="section-title">
-
-                <span>CHAPALA PIGS</span>
-
-                <h2>TIENDA</h2>
-
-                <p>
-                    Próximamente.
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
-    <footer>
-
-     <a href="https://www.instagram.com/chapalapigs/" target="_blank" class="logo">
-    CHAPALA PIGS
-</a>
-
-        <p>
-            © 2026 Chapala Pigs. Todos los derechos reservados.
-        </p>
-
-    </footer>
-
-
-    <!-- =========================
-         MODAL JUGADOR
-    ========================= -->
-
-    <div
-        id="jugadorModal"
-        class="jugador-modal"
-    >
-
-        <div class="jugador-contenido">
-
-            <button
-                class="cerrar-modal"
-                type="button"
-                onclick="cerrarJugador()"
-            >
-                ×
-            </button>
-
-
-            <div class="jugador-foto">
-
-                <img
-                    id="jugadorImagen"
-                    src=""
-                    alt="Jugador"
-                >
-
-            </div>
-
-
-            <div class="jugador-datos">
-
-                <span id="jugadorPosicion">
-                    JUGADOR
+                <span class="contador-titulo">
+                    TIEMPO RESTANTE
                 </span>
 
-                <h2 id="jugadorNombre">
-                    JUGADOR
-                </h2>
+                <div class="contador-numeros">
 
-                <p id="jugadorDescripcion">
-                    Información del jugador.
+                    <div>
+                        <strong id="dias">00</strong>
+                        <span>DÍAS</span>
+                    </div>
+
+                    <div>
+                        <strong id="horas">00</strong>
+                        <span>HORAS</span>
+                    </div>
+
+                    <div>
+                        <strong id="minutos">00</strong>
+                        <span>MIN</span>
+                    </div>
+
+                    <div>
+                        <strong id="segundos">00</strong>
+                        <span>SEG</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="sorteo-mensaje">
+
+                <span>
+                    CHAPALA PIGS
+                </span>
+
+                <p>
+                    Si alcanzamos los 10,000 dentro del periodo
+                    establecido, se anunciará oficialmente el sorteo.
                 </p>
-
-                <a
-                    id="jugadorInstagram"
-                    class="instagram"
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    INSTAGRAM
-                </a>
 
             </div>
 
         </div>
 
+    </section>
+
+
+    <!-- TIENDA -->
+
+    <section id="tienda" class="normal-section">
+
+        <div class="section-title">
+
+            <span>CHAPALA PIGS</span>
+
+            <h2>TIENDA</h2>
+
+            <p>
+                Próximamente.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <a
+        href="https://www.instagram.com/chapalapigs/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="logo"
+    >
+        CHAPALA PIGS
+    </a>
+
+    <p>
+        © 2026 Chapala Pigs. Todos los derechos reservados.
+    </p>
+
+</footer>
+
+
+<!-- MODAL JUGADOR -->
+
+<div
+    id="jugadorModal"
+    class="jugador-modal"
+>
+
+    <div class="jugador-contenido">
+
+        <button
+            class="cerrar-modal"
+            type="button"
+            onclick="cerrarJugador()"
+        >
+            ×
+        </button>
+
+
+        <div class="jugador-foto">
+
+            <img
+                id="jugadorImagen"
+                src=""
+                alt="Jugador"
+            >
+
+        </div>
+
+
+        <div class="jugador-datos">
+
+            <span id="jugadorPosicion">
+                JUGADOR
+            </span>
+
+            <h2 id="jugadorNombre">
+                JUGADOR
+            </h2>
+
+            <p id="jugadorDescripcion">
+                Información del jugador.
+            </p>
+
+            <a
+                id="jugadorInstagram"
+                class="instagram"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                INSTAGRAM
+            </a>
+
+        </div>
+
     </div>
 
+</div>
 
-    <script src="script.js"></script>
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
