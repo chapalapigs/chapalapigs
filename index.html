@@ -24,7 +24,6 @@
         <a href="#partidos">Partidos</a>
         <a href="#noticias">Noticias</a>
         <a href="#sorteos">Sorteos</a>
-        <a href="#pigs-online">Pigs Online</a>
         <a href="#tienda">Tienda</a>
     </nav>
 
@@ -33,7 +32,9 @@
 
 <main>
 
-    <!-- HERO -->
+    <!-- =========================
+         INICIO
+    ========================== -->
 
     <section class="hero" id="inicio">
 
@@ -56,7 +57,9 @@
     </section>
 
 
-    <!-- JUGADORES -->
+    <!-- =========================
+         JUGADORES
+    ========================== -->
 
     <section class="players" id="jugadores">
 
@@ -74,6 +77,11 @@
 
 
         <div class="players-grid">
+
+
+            <!-- =========================
+                 ANDRÉS
+            ========================== -->
 
             <div
                 class="player-card captain"
@@ -102,6 +110,10 @@
             </div>
 
 
+            <!-- =========================
+                 KARLA
+            ========================== -->
+
             <div
                 class="player-card"
                 data-player="karla"
@@ -129,6 +141,41 @@
             </div>
 
 
+            <!-- =========================
+                 ALONSO
+            ========================== -->
+
+            <div
+                class="player-card"
+                data-player="alonso"
+                onclick="abrirJugador('alonso')"
+            >
+
+                <img
+                    class="player-photo"
+                    src=""
+                    alt="Alonso"
+                >
+
+                <div class="player-info">
+
+                    <span class="position">
+                        JUGADOR
+                    </span>
+
+                    <h3>
+                        ALONSO
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 GABRIEL
+            ========================== -->
+
             <div
                 class="player-card"
                 data-player="gabriel"
@@ -155,6 +202,10 @@
 
             </div>
 
+
+            <!-- =========================
+                 DAMIÁN
+            ========================== -->
 
             <div
                 class="player-card"
@@ -187,7 +238,9 @@
     </section>
 
 
-    <!-- PARTIDOS -->
+    <!-- =========================
+         PARTIDOS
+    ========================== -->
 
     <section id="partidos" class="normal-section">
 
@@ -206,9 +259,14 @@
     </section>
 
 
-    <!-- NOTICIAS -->
+    <!-- =========================
+         NOTICIAS
+    ========================== -->
 
-    <section id="noticias" class="normal-section noticias-section">
+    <section
+        id="noticias"
+        class="normal-section noticias-section"
+    >
 
         <div class="section-title">
 
@@ -225,6 +283,31 @@
 
         <div class="noticias-grid">
 
+
+            <!-- ALONSO -->
+
+            <article class="noticia-card">
+
+                <span class="noticia-categoria">
+                    FICHAJE
+                </span>
+
+                <h3>
+                    ¡ALONSO ES NUEVO JUGADOR!
+                </h3>
+
+                <p>
+                    Chapala Pigs anuncia oficialmente la llegada
+                    de Alonso como nuevo jugador del equipo.
+                    Se incorpora para aportar talento, energía
+                    y muchas ganas de competir.
+                </p>
+
+            </article>
+
+
+            <!-- MBAPPÉ -->
+
             <article class="noticia-card">
 
                 <span class="noticia-categoria">
@@ -237,13 +320,15 @@
 
                 <p>
                     Chapala Pigs anuncia la llegada de
-                    Kylian Mbappé como su último gran fichaje.
+                    Kylian Mbappé como uno de sus grandes fichajes.
                     El delantero llega para aportar velocidad,
                     desequilibrio y gol al ataque del equipo.
                 </p>
 
             </article>
 
+
+            <!-- DAMIÁN -->
 
             <article class="noticia-card">
 
@@ -265,6 +350,8 @@
             </article>
 
 
+            <!-- ANDRÉS -->
+
             <article class="noticia-card">
 
                 <span class="noticia-categoria">
@@ -277,13 +364,13 @@
 
                 <p>
                     El capitán Andrés continúa liderando al equipo
-                    dentro y fuera de la cancha. Su liderazgo y
-                    compromiso lo mantienen como una de las figuras
-                    principales de Chapala Pigs.
+                    dentro y fuera de la cancha.
                 </p>
 
             </article>
 
+
+            <!-- GABRIEL -->
 
             <article class="noticia-card">
 
@@ -297,12 +384,13 @@
 
                 <p>
                     Gabriel continúa demostrando su evolución
-                    partido tras partido y cada vez tiene mayor
-                    participación dentro del equipo.
+                    partido tras partido.
                 </p>
 
             </article>
 
+
+            <!-- KARLA -->
 
             <article class="noticia-card">
 
@@ -316,12 +404,13 @@
 
                 <p>
                     Karla continúa aportando intensidad y buenas
-                    actuaciones. Su presencia se ha convertido
-                    en una parte importante del equipo.
+                    actuaciones al equipo.
                 </p>
 
             </article>
 
+
+            <!-- INSTAGRAM NOTICIAS -->
 
             <article class="noticia-card noticias-instagram">
 
@@ -336,8 +425,7 @@
                 <p>
                     Sigue todas las noticias, novedades,
                     fichajes y actualizaciones del equipo
-                    directamente en nuestra cuenta oficial
-                    de noticias.
+                    directamente en nuestra cuenta oficial.
                 </p>
 
                 <a
@@ -356,7 +444,9 @@
     </section>
 
 
-    <!-- SORTEOS -->
+    <!-- =========================
+         SORTEOS
+    ========================== -->
 
     <section id="sorteos" class="sorteos-section">
 
@@ -401,7 +491,7 @@
                 <div>
 
                     <strong id="numeroActual">
-                        6,474
+                        6,571
                     </strong>
 
                     <span>
@@ -411,7 +501,7 @@
                 </div>
 
                 <strong id="porcentaje">
-                    64.74%
+                    65.71%
                 </strong>
 
             </div>
@@ -436,7 +526,7 @@
                     </span>
 
                     <strong>
-                        14 AGO 2026 — 11:58
+                        11:58 · 15 AGO 2026
                     </strong>
 
                 </div>
@@ -462,7 +552,7 @@
                     </span>
 
                     <strong id="cantidadFaltante">
-                        3,526
+                        3,429
                     </strong>
 
                 </div>
@@ -521,7 +611,9 @@
     </section>
 
 
-    <!-- TIENDA -->
+    <!-- =========================
+         TIENDA
+    ========================== -->
 
     <section id="tienda" class="normal-section">
 
@@ -542,7 +634,9 @@
 </main>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================== -->
 
 <footer>
 
@@ -562,7 +656,9 @@
 </footer>
 
 
-<!-- MODAL JUGADOR -->
+<!-- =========================
+     MODAL JUGADOR
+========================== -->
 
 <div
     id="jugadorModal"
@@ -625,4 +721,5 @@
 <script src="script.js"></script>
 
 </body>
+
 </html>
