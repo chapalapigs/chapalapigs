@@ -181,12 +181,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function actualizarSorteo() {
 
-    /*
-        SEGUIDORES ACTUALES
-        Última actualización:
-        19:10 · 15 AGO 2026
-    */
-
     const actual = 6880;
 
     const meta = 10000;
@@ -277,21 +271,10 @@ function actualizarContador() {
 
     if (diferencia <= 0) {
 
-        if (dias) {
-            dias.textContent = "00";
-        }
-
-        if (horas) {
-            horas.textContent = "00";
-        }
-
-        if (minutos) {
-            minutos.textContent = "00";
-        }
-
-        if (segundos) {
-            segundos.textContent = "00";
-        }
+        if (dias) dias.textContent = "00";
+        if (horas) horas.textContent = "00";
+        if (minutos) minutos.textContent = "00";
+        if (segundos) segundos.textContent = "00";
 
         return;
     }
@@ -329,34 +312,23 @@ function actualizarContador() {
 
 
     if (dias) {
-
         dias.textContent =
             String(diasNumero).padStart(2, "0");
-
     }
-
 
     if (horas) {
-
         horas.textContent =
             String(horasNumero).padStart(2, "0");
-
     }
-
 
     if (minutos) {
-
         minutos.textContent =
             String(minutosNumero).padStart(2, "0");
-
     }
 
-
     if (segundos) {
-
         segundos.textContent =
             String(segundosNumero).padStart(2, "0");
-
     }
 
 }
@@ -365,6 +337,37 @@ function actualizarContador() {
 actualizarContador();
 
 setInterval(actualizarContador, 1000);
+
+
+/* =========================================================
+   USUARIO DESTACADO
+========================================================= */
+
+const usuariosDestacados = {
+
+    carreon: {
+        nombre: "†CARREON†",
+        instagram: "https://www.instagram.com/_281620_/"
+    }
+
+};
+
+
+function abrirUsuarioDestacado(id) {
+
+    const usuario = usuariosDestacados[id];
+
+    if (!usuario) {
+        return;
+    }
+
+    window.open(
+        usuario.instagram,
+        "_blank",
+        "noopener,noreferrer"
+    );
+
+}
 
 
 /* =========================================================
@@ -379,10 +382,8 @@ function verificarAcceso(event) {
 
     event.preventDefault();
 
-
     const input =
         document.getElementById("contrasenaAcceso");
-
 
     const mensaje =
         document.getElementById("mensajeAcceso");
