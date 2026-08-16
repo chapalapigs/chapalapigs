@@ -100,6 +100,10 @@ function abrirJugador(id) {
 }
 
 
+/* =========================================================
+   CERRAR MODAL
+========================================================= */
+
 function cerrarJugador() {
 
     const modal = document.getElementById("jugadorModal");
@@ -111,22 +115,24 @@ function cerrarJugador() {
 }
 
 
-/* Cerrar modal haciendo clic fuera */
+/* =========================================================
+   CERRAR MODAL HACIENDO CLICK FUERA
+========================================================= */
 
 document.addEventListener("click", function(event) {
 
     const modal = document.getElementById("jugadorModal");
 
-    if (
-        event.target === modal
-    ) {
+    if (event.target === modal) {
         cerrarJugador();
     }
 
 });
 
 
-/* Cerrar modal con ESC */
+/* =========================================================
+   CERRAR MODAL CON ESC
+========================================================= */
 
 document.addEventListener("keydown", function(event) {
 
@@ -175,36 +181,67 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function actualizarSorteo() {
 
-    const actual = 6807;
+    /*
+        SEGUIDORES ACTUALES
+        Última actualización:
+        19:10 · 15 AGO 2026
+    */
+
+    const actual = 6880;
+
     const meta = 10000;
 
     const porcentaje = (actual / meta) * 100;
-    const faltante = meta - actual;
 
-    const numeroActual = document.getElementById("numeroActual");
-    const porcentajeElemento = document.getElementById("porcentaje");
-    const cantidadFaltante = document.getElementById("cantidadFaltante");
-    const barra = document.getElementById("barraProgreso");
+    const faltante = Math.max(meta - actual, 0);
+
+
+    const numeroActual =
+        document.getElementById("numeroActual");
+
+    const porcentajeElemento =
+        document.getElementById("porcentaje");
+
+    const cantidadFaltante =
+        document.getElementById("cantidadFaltante");
+
+    const barra =
+        document.getElementById("barraProgreso");
+
 
     if (numeroActual) {
-        numeroActual.textContent = actual.toLocaleString("es-MX");
+
+        numeroActual.textContent =
+            actual.toLocaleString("es-MX");
+
     }
+
 
     if (porcentajeElemento) {
+
         porcentajeElemento.textContent =
             porcentaje.toFixed(2) + "%";
+
     }
+
 
     if (cantidadFaltante) {
+
         cantidadFaltante.textContent =
             faltante.toLocaleString("es-MX");
+
     }
 
+
     if (barra) {
-        barra.style.width = porcentaje + "%";
+
+        barra.style.width =
+            Math.min(porcentaje, 100) + "%";
+
     }
 
 }
+
 
 actualizarSorteo();
 
@@ -219,67 +256,111 @@ function actualizarContador() {
         "2026-09-14T23:59:59"
     ).getTime();
 
+
     const ahora = new Date().getTime();
 
     const diferencia = fechaFinal - ahora;
 
-    const dias = document.getElementById("dias");
-    const horas = document.getElementById("horas");
-    const minutos = document.getElementById("minutos");
-    const segundos = document.getElementById("segundos");
+
+    const dias =
+        document.getElementById("dias");
+
+    const horas =
+        document.getElementById("horas");
+
+    const minutos =
+        document.getElementById("minutos");
+
+    const segundos =
+        document.getElementById("segundos");
+
 
     if (diferencia <= 0) {
 
-        if (dias) dias.textContent = "00";
-        if (horas) horas.textContent = "00";
-        if (minutos) minutos.textContent = "00";
-        if (segundos) segundos.textContent = "00";
+        if (dias) {
+            dias.textContent = "00";
+        }
+
+        if (horas) {
+            horas.textContent = "00";
+        }
+
+        if (minutos) {
+            minutos.textContent = "00";
+        }
+
+        if (segundos) {
+            segundos.textContent = "00";
+        }
 
         return;
     }
 
+
     const diasNumero =
-        Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        Math.floor(
+            diferencia /
+            (1000 * 60 * 60 * 24)
+        );
+
 
     const horasNumero =
         Math.floor(
-            (diferencia % (1000 * 60 * 60 * 24)) /
+            (diferencia %
+                (1000 * 60 * 60 * 24)) /
             (1000 * 60 * 60)
         );
 
+
     const minutosNumero =
         Math.floor(
-            (diferencia % (1000 * 60 * 60)) /
+            (diferencia %
+                (1000 * 60 * 60)) /
             (1000 * 60)
         );
 
+
     const segundosNumero =
         Math.floor(
-            (diferencia % (1000 * 60)) /
+            (diferencia %
+                (1000 * 60)) /
             1000
         );
 
+
     if (dias) {
+
         dias.textContent =
             String(diasNumero).padStart(2, "0");
+
     }
+
 
     if (horas) {
+
         horas.textContent =
             String(horasNumero).padStart(2, "0");
+
     }
+
 
     if (minutos) {
+
         minutos.textContent =
             String(minutosNumero).padStart(2, "0");
+
     }
 
+
     if (segundos) {
+
         segundos.textContent =
             String(segundosNumero).padStart(2, "0");
+
     }
 
 }
+
 
 actualizarContador();
 
@@ -298,25 +379,31 @@ function verificarAcceso(event) {
 
     event.preventDefault();
 
+
     const input =
         document.getElementById("contrasenaAcceso");
 
+
     const mensaje =
         document.getElementById("mensajeAcceso");
+
 
     if (!input || !mensaje) {
         return;
     }
 
+
     const contraseñaIntroducida =
         input.value;
+
 
     if (contraseñaIntroducida === CONTRASENA) {
 
         mensaje.textContent =
             "ACCESO COMPLETADO";
 
-        mensaje.style.color = "#ff4fa3";
+        mensaje.style.color =
+            "#ff4fa3";
 
         input.value = "";
 
@@ -325,7 +412,8 @@ function verificarAcceso(event) {
         mensaje.textContent =
             "ACCESO DENEGADO";
 
-        mensaje.style.color = "#ff4fa3";
+        mensaje.style.color =
+            "#ff4fa3";
 
         input.value = "";
 
