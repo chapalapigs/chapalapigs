@@ -429,6 +429,15 @@ nav a:hover {
 
 
 /* =========================
+   USUARIO DESTACADO
+========================= */
+
+.usuario-destacado {
+    color: #ff4fa3;
+}
+
+
+/* =========================
    NOTICIAS
 ========================= */
 
@@ -642,7 +651,7 @@ nav a:hover {
 }
 
 .progreso {
-    width: 64.74%;
+    width: 73.26%;
 
     height: 100%;
 

@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function actualizarSorteo() {
 
-    const actual = 6880;
+    const actual = 7326;
 
     const meta = 10000;
 
