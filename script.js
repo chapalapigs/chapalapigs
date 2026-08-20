@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function actualizarSorteo() {
 
-    const actual = 7326;
+    const actual = 8071;
 
     const meta = 10000;
 
@@ -366,58 +366,5 @@ function abrirUsuarioDestacado(id) {
         "_blank",
         "noopener,noreferrer"
     );
-
-}
-
-
-/* =========================================================
-   ACCESO PRIVADO
-========================================================= */
-
-const CONTRASENA =
-    "q4029o3402934¿01934¿20194¿31293¿211923'92130'192'30";
-
-
-function verificarAcceso(event) {
-
-    event.preventDefault();
-
-    const input =
-        document.getElementById("contrasenaAcceso");
-
-    const mensaje =
-        document.getElementById("mensajeAcceso");
-
-
-    if (!input || !mensaje) {
-        return;
-    }
-
-
-    const contraseñaIntroducida =
-        input.value;
-
-
-    if (contraseñaIntroducida === CONTRASENA) {
-
-        mensaje.textContent =
-            "ACCESO COMPLETADO";
-
-        mensaje.style.color =
-            "#ff4fa3";
-
-        input.value = "";
-
-    } else {
-
-        mensaje.textContent =
-            "ACCESO DENEGADO";
-
-        mensaje.style.color =
-            "#ff4fa3";
-
-        input.value = "";
-
-    }
 
 }
